@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 
-import { askQuestion, ChatResponse, uploadDocument } from "./lib/api";
+import { askQuestion, ChatResponse, uploadDocument } from "./api";
 
 const defaultUser = import.meta.env.VITE_DEFAULT_USER_ID || "demo-user";
 
