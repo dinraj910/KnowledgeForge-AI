@@ -193,3 +193,6 @@ sketch
 # Keep frontend source helpers tracked
 !frontend/src/lib/
 !frontend/src/lib/**
+
+# Local planning tracker
+next_phase.md
