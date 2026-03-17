@@ -1,16 +1,14 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 
-@dataclass
-class SourceChunk:
+class SourceChunk(BaseModel):
     chunk_id: str
     document_name: str
     score: float
     content: str
 
 
-@dataclass
-class RAGAnswer:
+class RAGAnswer(BaseModel):
     answer: str
     sources: list[SourceChunk]
 
