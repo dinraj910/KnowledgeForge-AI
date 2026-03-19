@@ -1,3 +1,4 @@
+import os
 from functools import lru_cache
 
 from pydantic import Field, field_validator
@@ -20,6 +21,16 @@ class Settings(BaseSettings):
     backend_cors_origins: list[str] = Field(
         default_factory=lambda: ["http://localhost:5173"],
         alias="BACKEND_CORS_ORIGINS",
+    )
+
+    upload_dir: str = Field(
+        default_factory=lambda: os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "uploads"),
+        alias="UPLOAD_DIR",
+    )
+    max_upload_size_mb: int = Field(default=20, alias="MAX_UPLOAD_SIZE_MB")
+    db_path: str = Field(
+        default_factory=lambda: os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "ingestion.db"),
+        alias="DB_PATH",
     )
 
     database_url: str = Field(default="", alias="DATABASE_URL", validation_alias="neon_conn_string")
