@@ -186,8 +186,8 @@ export function Dashboard() {
 
         {/* Header Content */}
         <div className="px-5 pt-3 pb-3 nexus-header-line mx-3">
-          <h2 className="mb-1 fw-bold">Nexus AI | Enterprise Knowledge Base</h2>
-          <div className="text-muted">Conversing with global enterprise data</div>
+          <h2 className="mb-1 fw-bold">KnowledgeForge AI | Private RAG Base</h2>
+          <div className="text-muted">Conversing with your extracted personal documents</div>
         </div>
 
         {/* Chat Area */}
@@ -210,7 +210,7 @@ export function Dashboard() {
                <NexusIcon />
              </div>
              <div>
-               <div className="fw-bold mb-1">AI</div>
+               <div className="fw-bold mb-1">KnowledgeForge AI</div>
                
                {answer ? (
                  <div className="mb-0" style={{ fontSize: "1.05rem", whiteSpace: "pre-wrap" }}>
@@ -249,7 +249,7 @@ export function Dashboard() {
             <input 
               type="text" 
               className="form-control py-2" 
-              placeholder="Ask Nexus AI (use @ for context)..."
+              placeholder="Ask KnowledgeForge AI (use @ for context)..."
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
             />

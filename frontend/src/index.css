@@ -11,6 +11,11 @@
   --nexus-input-bg: #2b2e35;
   
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Force bootstrap vars for dark mode text */
+  --bs-body-color: #e6e9ec;
+  --bs-body-bg: #191a1d;
+  --bs-heading-color: #e6e9ec;
 }
 
 body {
@@ -29,7 +34,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
-  color: var(--nexus-text-primary);
+  color: var(--nexus-text-primary) !important;
   letter-spacing: -0.02em;
 }
 
@@ -37,7 +42,7 @@ a {
   text-decoration: none;
 }
 
-p {
+p, span, div {
   color: var(--nexus-text-primary);
 }
 
@@ -61,12 +66,12 @@ p {
 .form-control, .form-control:focus {
   background-color: transparent;
   border: none;
-  color: var(--nexus-text-primary);
+  color: var(--nexus-text-primary) !important;
   box-shadow: none;
 }
 
 .form-control::placeholder {
-  color: var(--nexus-text-muted);
+  color: var(--nexus-text-muted) !important;
 }
 
 .btn-primary {
@@ -164,6 +169,14 @@ p {
   font-weight: 600;
   color: #fff;
   flex-shrink: 0;
+}
+
+/* Bootstrap component overrides to ensure visibility */
+.card, .navbar {
+  color: var(--nexus-text-primary) !important;
+}
+.text-muted {
+  color: var(--nexus-text-muted) !important;
 }
 
 .avatar-ai {

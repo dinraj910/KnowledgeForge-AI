@@ -16,7 +16,7 @@ export function NexusBrand() {
   return (
     <div className="d-flex align-items-center gap-2">
       <NexusIcon />
-      <span className="nexus-brand-text">Nexus AI</span>
+      <span className="nexus-brand-text">KnowledgeForge AI</span>
     </div>
   );
 }

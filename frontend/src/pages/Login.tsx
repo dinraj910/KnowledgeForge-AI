@@ -25,7 +25,7 @@ export function Login() {
 
         <h3 className="fw-bold mb-2 text-center text-light">Welcome back</h3>
         <p className="text-center mb-4" style={{ color: "var(--nexus-text-muted)" }}>
-          Sign in to your Nexus AI account.
+          Sign in to your KnowledgeForge AI account.
         </p>
         
         <form onSubmit={handleSubmit}>

@@ -26,7 +26,7 @@ export function Register() {
 
         <h3 className="fw-bold mb-2 text-center text-light">Create an account</h3>
         <p className="text-center mb-4" style={{ color: "var(--nexus-text-muted)" }}>
-          Deploy Nexus AI for your knowledge base.
+          Deploy KnowledgeForge AI for your personal base.
         </p>
         
         <form onSubmit={handleSubmit}>
