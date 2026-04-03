@@ -3,37 +3,38 @@ import { Navigation } from "../components/Navigation";
 
 export function Home() {
   return (
-    <div className="page-container">
+    <div className="vh-100 d-flex flex-column nexus-main">
       <Navigation />
       
-      <main style={{ 
-        flex: 1, 
-        display: "flex", 
-        flexDirection: "column", 
-        alignItems: "center", 
-        justifyContent: "center",
-        padding: "4rem 2rem",
-        textAlign: "center"
-      }}>
-        <h1 style={{ fontSize: "3rem", marginBottom: "1rem", maxWidth: "800px", lineHeight: 1.2 }}>
-          Your Enterprise Intelligence, <br/> Organized.
-        </h1>
-        <p style={{ fontSize: "1.125rem", maxWidth: "600px", marginBottom: "2.5rem" }}>
-          Nexus AI transforms your scattered documents into an intelligent, instantly queryable knowledge base. 
-          Experience a deeply polished workspace designed for maximum clarity and focus.
-        </p>
-        
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <Link to="/register">
-            <button className="primary" style={{ padding: "0.75rem 2rem", fontSize: "1rem" }}>
-              Start for free
-            </button>
-          </Link>
-          <Link to="/login">
-            <button style={{ padding: "0.75rem 2rem", fontSize: "1rem" }}>
-              Log in
-            </button>
-          </Link>
+      <main className="flex-grow-1 d-flex flex-column align-items-center justify-content-center text-center px-4" style={{ backgroundColor: "var(--nexus-bg-main)" }}>
+        <div className="container" style={{ maxWidth: "800px" }}>
+          
+          <div className="mb-4 d-inline-flex align-items-center rounded-pill border px-3 py-1" style={{ borderColor: "var(--nexus-border)", backgroundColor: "var(--nexus-bg-sidebar)" }}>
+            <span className="badge bg-primary rounded-pill me-2">New</span>
+            <span className="small text-muted" style={{ fontWeight: 500 }}>Enterprise RAG Engine v2.0 is live</span>
+          </div>
+
+          <h1 className="fw-bold mb-4" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", letterSpacing: "-0.03em" }}>
+            The Intel Layer for Your Entire Enterprise.
+          </h1>
+          
+          <p className="lead mb-5 mx-auto" style={{ color: "var(--nexus-text-muted)", maxWidth: "600px" }}>
+            Nexus AI transforms scattered PDFs, documents, and messy knowledge bases into an instantly queryable, highly secure artificial analyst.
+          </p>
+          
+          <div className="d-flex justify-content-center gap-3 flex-wrap">
+            <Link to="/register">
+              <button className="btn btn-primary btn-lg rounded-3 px-5 py-3 fw-medium">
+                Get Started
+              </button>
+            </Link>
+            <Link to="/login">
+              <button className="btn btn-outline-light btn-lg rounded-3 px-5 py-3 fw-medium border" style={{ borderColor: "var(--nexus-border)", backgroundColor: "var(--nexus-bg-sidebar)" }}>
+                Sign In
+              </button>
+            </Link>
+          </div>
+          
         </div>
       </main>
     </div>

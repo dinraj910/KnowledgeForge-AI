@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { NexusBrand } from "../components/NexusBrand";
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -8,53 +9,68 @@ export function Login() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    // Simulate auth, then redirect
     if (email) {
       navigate("/dashboard");
     }
   }
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2 style={{ textAlign: "center", marginBottom: "0.5rem" }}>Welcome back</h2>
-        <p style={{ textAlign: "center", marginBottom: "2rem", fontSize: "0.875rem" }}>
-          Please enter your details to sign in.
+    <div className="vh-100 d-flex align-items-center justify-content-center nexus-main px-3">
+      
+      <div className="card shadow-lg border-0 p-4 p-md-5" style={{ backgroundColor: "var(--nexus-bg-sidebar)", maxWidth: "450px", width: "100%", border: "1px solid var(--nexus-border)" }}>
+        
+        <div className="text-center mb-4 d-flex justify-content-center">
+          <Link to="/" className="text-decoration-none"><NexusBrand /></Link>
+        </div>
+
+        <h3 className="fw-bold mb-2 text-center text-light">Welcome back</h3>
+        <p className="text-center mb-4" style={{ color: "var(--nexus-text-muted)" }}>
+          Sign in to your Nexus AI account.
         </p>
         
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
+          
+          <div className="mb-3">
+            <label className="form-label" style={{ color: "var(--nexus-text-muted)", fontSize: "0.85rem", fontWeight: 500 }}>Email Address</label>
             <input 
-              id="email" 
               type="email" 
+              className="form-control py-2" 
+              style={{ backgroundColor: "var(--nexus-input-bg)", borderColor: "var(--nexus-border)", color: "var(--nexus-text-primary)" }}
+              placeholder="you@company.com" 
               value={email}
               onChange={e => setEmail(e.target.value)}
-              placeholder="you@company.com" 
               required 
             />
           </div>
           
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
+          <div className="mb-4">
+            <div className="d-flex justify-content-between align-items-center">
+              <label className="form-label mb-0" style={{ color: "var(--nexus-text-muted)", fontSize: "0.85rem", fontWeight: 500 }}>Password</label>
+              <a href="#" className="text-decoration-none small" style={{ color: "var(--nexus-blue)" }}>Forgot?</a>
+            </div>
             <input 
-              id="password" 
               type="password" 
+              className="form-control py-2 mt-2" 
+              style={{ backgroundColor: "var(--nexus-input-bg)", borderColor: "var(--nexus-border)", color: "var(--nexus-text-primary)" }}
+              placeholder="••••••••" 
               value={password}
               onChange={e => setPassword(e.target.value)}
-              placeholder="••••••••" 
               required 
             />
           </div>
           
-          <button type="submit" className="primary" style={{ width: "100%", marginTop: "1rem" }}>
+          <button type="submit" className="btn btn-primary w-100 py-2 rounded-3 fw-medium mb-3">
             Sign in
           </button>
+          
         </form>
         
-        <p style={{ textAlign: "center", marginTop: "1.5rem", fontSize: "0.875rem" }}>
-          Don't have an account? <Link to="/register" style={{ color: "var(--accent)" }}>Sign up</Link>
-        </p>
+        <div className="text-center mt-2">
+          <span style={{ color: "var(--nexus-text-muted)", fontSize: "0.9rem" }}>
+            Don't have an account? <Link to="/register" className="text-decoration-none fw-medium" style={{ color: "var(--nexus-blue)" }}>Sign up</Link>
+          </span>
+        </div>
+        
       </div>
     </div>
   );
