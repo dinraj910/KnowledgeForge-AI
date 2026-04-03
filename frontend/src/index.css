@@ -1,105 +1,177 @@
-:root {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #0f172a;
-  background: linear-gradient(150deg, #f8fafc 0%, #eef2ff 100%);
-}
+/* index.css - Nexus AI Custom Overrides on top of Bootstrap */
 
-* {
-  box-sizing: border-box;
+:root {
+  --nexus-bg-sidebar: #222529;
+  --nexus-bg-main: #191a1d;
+  --nexus-border: #3b3f46;
+  --nexus-text-muted: #88929e;
+  --nexus-text-primary: #e6e9ec;
+  --nexus-blue: #1877f2;
+  --nexus-blue-hover: #166ae0;
+  --nexus-input-bg: #2b2e35;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--nexus-bg-main);
+  color: var(--nexus-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 24px 16px 48px;
+/* Base resets & typography overrides to match the clean Inter aesthetic */
+* {
+  box-sizing: border-box;
 }
 
-.panel {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-  margin-bottom: 16px;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--nexus-text-primary);
+  letter-spacing: -0.02em;
 }
 
-h1 {
-  margin: 0 0 8px;
+a {
+  text-decoration: none;
 }
 
 p {
-  margin: 0;
-  color: #475569;
+  color: var(--nexus-text-primary);
 }
 
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--nexus-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555b66;
 }
 
-input,
-textarea,
-button {
-  width: 100%;
-  font: inherit;
-  border-radius: 10px;
-}
-
-input,
-textarea {
-  border: 1px solid #cbd5e1;
-  padding: 10px 12px;
-  outline: none;
-}
-
-textarea {
-  min-height: 90px;
-  resize: vertical;
-}
-
-button {
+/* Inputs & Buttons Customizations */
+.form-control, .form-control:focus {
+  background-color: transparent;
   border: none;
-  background: #1d4ed8;
+  color: var(--nexus-text-primary);
+  box-shadow: none;
+}
+
+.form-control::placeholder {
+  color: var(--nexus-text-muted);
+}
+
+.btn-primary {
+  background-color: var(--nexus-blue);
+  border-color: var(--nexus-blue);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--nexus-blue-hover);
+  border-color: var(--nexus-blue-hover);
+  box-shadow: none !important;
+}
+
+/* Sidebar Nav Links */
+.nav-link {
+  color: var(--nexus-text-primary);
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+
+.nav-link:hover {
   color: #fff;
-  padding: 10px 12px;
-  cursor: pointer;
+  opacity: 0.8;
 }
 
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.nav-link i {
+  color: var(--nexus-text-muted);
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
 }
 
-.row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+/* Specific Nexus Layout Elements */
+.nexus-sidebar {
+  background-color: var(--nexus-bg-sidebar);
+  border-right: 1px solid var(--nexus-border);
+  width: 280px;
+  min-width: 280px;
 }
 
-.answer {
-  white-space: pre-wrap;
-  line-height: 1.55;
+.nexus-main {
+  background-color: var(--nexus-bg-main);
 }
 
-.source {
-  border-top: 1px solid #e2e8f0;
-  padding-top: 10px;
-  margin-top: 10px;
+.nexus-header-line {
+  border-bottom: 1px solid var(--nexus-border);
 }
 
-.meta {
-  color: #64748b;
-  font-size: 0.9rem;
+.nexus-input-area {
+  background-color: var(--nexus-input-bg);
+  border-radius: 12px;
+  border: 1px solid var(--nexus-border);
 }
 
-@media (min-width: 768px) {
-  .row {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.nexus-icon-btn {
+  background: none;
+  border: none;
+  color: var(--nexus-text-muted);
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s;
+}
+
+.nexus-icon-btn:hover {
+  color: var(--nexus-text-primary);
+}
+
+.nexus-brand-text {
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.nexus-section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--nexus-text-muted);
+  font-weight: 600;
+}
+
+/* Avatar Helpers */
+.avatar {
+  background-color: #3b3f46;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.avatar-ai {
+  background-color: var(--nexus-bg-main); /* we'll just insert an N icon or logo */
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
