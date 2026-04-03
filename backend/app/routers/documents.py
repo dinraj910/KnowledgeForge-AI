@@ -91,6 +91,31 @@ async def upload_document(
     )
 
 
+@router.get("/", response_model=list[DocumentStatus])
+async def list_documents(user_id: str) -> list[DocumentStatus]:
+    """Return all documents for a given user, newest first."""
+    async with get_db() as conn:
+        cursor = await conn.execute(
+            "SELECT * FROM documents WHERE user_id = ? ORDER BY created_at DESC",
+            (user_id,),
+        )
+        rows = await cursor.fetchall()
+
+    return [
+        DocumentStatus(
+            id=row["id"],
+            user_id=row["user_id"],
+            filename=row["filename"],
+            status=row["status"],
+            chunk_count=row["chunk_count"],
+            error_message=row["error_message"],
+            created_at=row["created_at"],
+            updated_at=row["updated_at"],
+        )
+        for row in rows
+    ]
+
+
 @router.get("/{doc_id}/status", response_model=DocumentStatus)
 async def get_document_status(doc_id: str) -> DocumentStatus:
     """Return the current ingestion status of a document."""
